@@ -58,3 +58,15 @@ Show the running pods; two more Pods are started.
 ```
 watch oc get pods
 ```
+
+Change a Kafka broker configuration adding `offsets.topic.replication.factor` (i.e. to 5) in the `kafka-config` data field in the `my-cluster` config map.
+
+```
+oc edit cm my-cluster
+```
+
+Show the rolling update. Each Pod is killed one by one and recreated with the new configuration.
+
+```
+watch oc get pods
+```
